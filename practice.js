@@ -64,9 +64,9 @@ var devMountainClassPet = dog.name;
 //Add a method to dog called bark.
 //The value of bark should be a function that returns the string "Woof woof".
 
-dog.bark(function () {
+dog.bark = function () {
   return "Woof woof"
-});
+};
 
 
 //Store the result of invoking the bark method in a variable called ruff.
@@ -85,11 +85,10 @@ let ruff = dog.bark();
 //Return mySum.
 
 function looper(arr) {
-  for (let mySum = 0; mySum < arr.length; mySum++) {
-    if (arr % 2 !== 0) {
-      arr + mySum;
-    } else if (arr >= 100) {
-      arr + mySum;
+  var mySum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 !== 0 || arr[i] >= 100) {
+      mySum += arr[i]
     }
   }
   return mySum;
@@ -112,8 +111,7 @@ function add(num1, num2) {
 
 //Now invoke math, passing in the numbers 3 and 4, and your add function,
 //storing the result in the variable mathSum.
-math(3, 4);
-add(3, 4);
+
 var mathSum = add(3, 4);
 
 //////////////////PROBLEM 8////////////////////
@@ -130,7 +128,7 @@ function sampleCallbackTwo() {
 }
 
 function invoker(cb) {
-  return (cb);
+  return cb();
 }
 
 //////////////////PROBLEM 9////////////////////
@@ -158,13 +156,13 @@ function pond() {
 let globalScope = ["duck"];
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = ["rubberDuck"];
+let bathroomScope = ["rubberDuck", "duck"];
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = ["sailorDuck"];
+let bathtubScope = ["sailorDuck", "duck", "rubberDuck"];
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = ["realDuck"];
+let pondScope = ["realDuck", "duck"];
 
 //////////////////PROBLEM 10////////////////////
 
